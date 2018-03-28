@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.seckill.dao.SeckillDao">
+
+    <resultMap type="org.seckill.entity.Seckill" id="MessageResult">
+        <id column="SECKILL_ID" jdbcType="DECIMAL" property="seckillId"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="NUMBER" jdbcType="VARCHAR" property="number"/>
+        <result column="START_TIME" jdbcType="VARCHAR" property="startTime"/>
+        <result column="END_TIME" jdbcType="VARCHAR" property="endTime"/>
+        <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime"/>
+    </resultMap>
+
+    <select id="queryById" parameterType="long" resultMap="MessageResult">
+        SELECT * FROM SECKILL WHERE SECKILL_ID = #{seckillId}
+    </select>
+
+    <update id="reduceNumer">
+        UPDATE SECKILL
+        SET
+        NUMBER = NUMBER - 1
+        WHERE SECKILL_ID = #{seckillId}
+        AND START_TIME &lt;= #{startTime}
+        AND NUMBER > 0
+    </update>
+    
+    <select id="queryAll" resultType="Seckill">
+        select * from seckill
+        order by create_time desc
+        limit #{offset},#{limit}
+    </select>
+
+</mapper>
