@@ -13,13 +13,15 @@
     </resultMap>
 
     <select id="queryByIdWithSeckill" parameterType="long" resultMap="MessageResult">
-        SELECT sk.* FROM seuccess_killed sk
+        SELECT sk.*
+        FROM success_killed sk
         inner JOIN seckill s on sk.SECKILL_ID = s.SECKILL_ID
-         WHERE sk.SECKILL_ID = #{seckillId}
+        WHERE sk.SECKILL_ID = #{seckillId}
+        AND sk.USER_PHONE = #{userPhone}
     </select>
 
     <insert id="insertSuccessKilled">
-        INSERT ignore INTO seuccess_killed(SECKILL_ID,USER_PHONE)
+        INSERT ignore INTO success_killed(SECKILL_ID,USER_PHONE)
         VALUES (#{seckillId},#{userPhone})
     </insert>
 

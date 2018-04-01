@@ -24,13 +24,13 @@
         NUMBER = NUMBER - 1
         WHERE SECKILL_ID = #{seckillId}
         AND START_TIME &lt;= #{startTime}
+        AND END_TIME &gt;= #{startTime}
         AND NUMBER > 0
     </update>
     
-    <select id="queryAll" resultType="Seckill">
+    <select id="queryAll" resultType="org.seckill.entity.Seckill">
         select * from seckill
         order by create_time desc
-        limit #{offset},#{limit}
     </select>
 
 </mapper>

@@ -16,6 +16,10 @@ public class Seckill {
 
     private Date createTime;
 
+    private int offset;
+
+    private int limit;
+
     public long getSeckillId() {
         return seckillId;
     }
@@ -62,6 +66,22 @@ public class Seckill {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 
     @Override
