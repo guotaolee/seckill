@@ -21,8 +21,8 @@
     </select>
 
     <insert id="insertSuccessKilled">
-        INSERT ignore INTO success_killed(SECKILL_ID,USER_PHONE)
-        VALUES (#{seckillId},#{userPhone})
+        INSERT ignore INTO success_killed(SECKILL_ID,USER_PHONE,STATE)
+        VALUES (#{seckillId},#{userPhone},0)
     </insert>
 
 </mapper>
