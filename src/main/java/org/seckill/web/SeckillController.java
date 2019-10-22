@@ -28,6 +28,7 @@ public class SeckillController {
     @Autowired
     private SeckillService seckillService;
 
+    //实验
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
         List<Seckill> list = seckillService.getSeckillList();
